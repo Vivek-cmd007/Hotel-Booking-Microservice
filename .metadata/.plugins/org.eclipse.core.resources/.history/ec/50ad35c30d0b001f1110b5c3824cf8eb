@@ -1,0 +1,71 @@
+package com.paymentservice.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.paymentservice.entity.Payment;
+import com.paymentservice.exception.ResourceNotFoundException;
+import com.paymentservice.model.BookingResponse;
+import com.paymentservice.repository.PaymentRepository;
+import com.userservice.entity.User;
+
+
+@Service
+public class PaymentServiceImpl implements PaymentService{
+	
+	@Autowired
+	BookingServiceConsumer bookingService;
+	
+	@Autowired
+	PaymentRepository paymentService;
+
+	@Override
+	public Payment getPaymentById(int paymentId) {
+		Optional<Payment> optionalproduct = paymentService.findById(paymentId);
+
+		if (optionalproduct.isEmpty()) {
+			throw new ResourceNotFoundException("User Not found with id "+paymentId);
+
+		}
+		Payment payment = optionalproduct.get();
+		return payment;
+	}
+	
+
+
+	@Override
+	public ResponseEntity<?> createPayment( Payment payment) {
+		
+		BookingResponse booking = bookingService.getFullBookingDetails(payment.getBookingId());
+		
+		System.out.println("Payment Amount: [" + payment.getPayAmount() + "]");
+		System.out.println("Booking Amount: [" + booking.getAmount() + "]");
+
+		
+		if(payment.getPayAmount().equalsIgnoreCase((booking.getAmount()))) {
+			
+			 Payment processedPayment = paymentService.save(payment);
+	           
+			 return new ResponseEntity<>(processedPayment, HttpStatus.OK);
+		}
+		else {
+//			 throw new RuntimeException("Payment declined");
+			return new ResponseEntity<>("Payment Declined", HttpStatus.CONFLICT);
+		}
+		
+		
+	}
+
+
+	@Override
+	public Payment getAllPayment() {
+		List<Payment> payments= paymentService.findAll();
+		return payment;
+	}
+
+}

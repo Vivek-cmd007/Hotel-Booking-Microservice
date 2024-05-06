@@ -1,0 +1,49 @@
+package com.bookingservice.model;
+
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class Hotel {
+
+
+	private int hotelId;	
+
+	private String city;	
+
+	private String hotelName;	
+	
+	private String address;
+
+	private String description;	
+	
+	private double avgRatePerDay;
+	
+	private String email;		
+
+	private String phone1;
+		
+	private String phone2;
+
+	private String website;
+	
+	@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
+
+	private List<RoomDetails> roomDetails;
+	
+
+}

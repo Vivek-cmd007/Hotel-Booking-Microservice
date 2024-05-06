@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="BookingTest" project="booking-service" tests="5" started="5" failures="0" errors="1" ignored="0">
+  <testsuite name="com.bookingservice.bookingtest.BookingTest" time="0.191" displayname="BookingTest" uniqueid="[engine:junit-jupiter]/[class:com.bookingservice.bookingtest.BookingTest]">
+    <testcase name="testAddBookingDetails" classname="com.bookingservice.bookingtest.BookingTest" time="0.097" displayname="testAddBookingDetails()" uniqueid="[engine:junit-jupiter]/[class:com.bookingservice.bookingtest.BookingTest]/[method:testAddBookingDetails()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.bookingservice.service.HotelServiceConsumer.getRoomDetailsById(int)" because "this.hotelService" is null&#13;
+	at com.bookingservice.service.BookingDetailsServiceImpl.createBookingDetails(BookingDetailsServiceImpl.java:40)&#13;
+	at com.bookingservice.bookingtest.BookingTest.testAddBookingDetails(BookingTest.java:52)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testUpdateBookingDetails" classname="com.bookingservice.bookingtest.BookingTest" time="0.041" displayname="testUpdateBookingDetails()" uniqueid="[engine:junit-jupiter]/[class:com.bookingservice.bookingtest.BookingTest]/[method:testUpdateBookingDetails()]"/>
+    <testcase name="testgetBookingDetailById" classname="com.bookingservice.bookingtest.BookingTest" time="0.009" displayname="testgetBookingDetailById()" uniqueid="[engine:junit-jupiter]/[class:com.bookingservice.bookingtest.BookingTest]/[method:testgetBookingDetailById()]"/>
+    <testcase name="testGetAllBookingDetails" classname="com.bookingservice.bookingtest.BookingTest" time="0.008" displayname="testGetAllBookingDetails()" uniqueid="[engine:junit-jupiter]/[class:com.bookingservice.bookingtest.BookingTest]/[method:testGetAllBookingDetails()]"/>
+    <testcase name="testDeleteBookingDetails" classname="com.bookingservice.bookingtest.BookingTest" time="0.016" displayname="testDeleteBookingDetails()" uniqueid="[engine:junit-jupiter]/[class:com.bookingservice.bookingtest.BookingTest]/[method:testDeleteBookingDetails()]"/>
+  </testsuite>
+</testrun>

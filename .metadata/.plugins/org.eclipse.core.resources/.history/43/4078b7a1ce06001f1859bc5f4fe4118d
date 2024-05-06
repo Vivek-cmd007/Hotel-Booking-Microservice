@@ -1,0 +1,7 @@
+package com.bookingservice.repository;
+
+
+
+public class BookingDetailsRepository extends JpaRepository<BookingDetails,Integer> {
+
+}

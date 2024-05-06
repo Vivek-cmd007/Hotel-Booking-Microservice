@@ -1,0 +1,46 @@
+package com.adminservice.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.adminservice.entity.Admin;
+import com.adminservice.repository.AdminRepository;
+import com.bookingservice.entity.BookingDetails;
+import com.bookingservice.exception.ResourceNotFoundException;
+import com.bookingservice.model.Hotel;
+import com.bookingservice.model.RoomDetails;
+import com.bookingservice.model.User;
+
+public class AdminServiceImpl implements AdminService {
+	
+	@Autowired
+	private AdminRepository repository;
+	
+	
+
+	@Override
+	public Admin update(Admin admin) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Admin add(Admin admin) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Admin getAll(Admin admin) {
+
+	return null;
+	}
+
+}

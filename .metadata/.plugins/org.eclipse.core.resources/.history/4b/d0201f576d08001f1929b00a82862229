@@ -1,0 +1,14 @@
+package com.paymentservice.service;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+import com.paymentservice.model.BookingDetails;
+
+@FeignClient
+public interface BookingServiceConsumer {
+	
+	BookingDetails getBookingDetailsById(int bookingId);
+	
+	
+
+}

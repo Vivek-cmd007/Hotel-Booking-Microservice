@@ -1,0 +1,15 @@
+package com.paymentservice.service;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.hotelbooking.entity.Transaction;
+
+@Service
+public interface TransactionService {
+
+	 Optional<Transaction> getTransactionById(int transactionId);
+
+	  Transaction createTransaction(Transaction transaction);
+}

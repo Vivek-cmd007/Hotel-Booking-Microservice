@@ -1,0 +1,21 @@
+package com.hotelroom.payload;
+
+public class RoomDetailsPayload {
+	
+	private int hotelId;
+	private int roomNo;
+	public int getHotelId() {
+		return hotelId;
+	}
+	public void setHotelId(int hotelId) {
+		this.hotelId = hotelId;
+	}
+	public int getRoomNo() {
+		return roomNo;
+	}
+	public void setRoomNo(int roomNo) {
+		this.roomNo = roomNo;
+	}
+	
+
+}

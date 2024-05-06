@@ -1,0 +1,9 @@
+package com.bookingservice.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.bookingservice.entity.BookingDetails;
+
+public interface BookingServiceRepository extends JpaRepository<BookingDetails,Integer> {
+
+}

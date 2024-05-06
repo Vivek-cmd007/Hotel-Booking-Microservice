@@ -1,0 +1,21 @@
+package com.userservice.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.userservice.entity.User;
+import com.userservice.repositoty.UserRepository;
+
+@Service
+public class AuthService {
+	
+	@Autowired
+	private UserRepository userRepository
+	
+	public String saveUser(User credentials) {
+		
+		userRepository.save(credentials);
+		return "User added to the System";
+	}
+
+}

@@ -1,0 +1,20 @@
+package com.hotelroom.payload;
+
+import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class RoomDetailsPayload {
+
+	@Positive(message = "Only Positive values Allowed")
+	private int hotelId;
+	private String roomNo;
+	private String roomType;
+	private double ratePerDay;
+	private boolean available;
+
+}

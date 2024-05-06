@@ -1,0 +1,21 @@
+package com.paymentservice.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class BookingDetails {
+	
+
+	  private int bookingId;  
+	  private String amount;
+	
+	  
+
+
+	
+
+}

@@ -1,0 +1,16 @@
+package com.bookingservice.service;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.hotelbooking.entity.BookingDetails;
+
+@Service
+public interface BookingDetailsService {
+	
+	 Optional<BookingDetails> getBookingDetailsById(int bookingId);
+
+	  BookingDetails createBookingDetails(BookingDetails bookingDetails);
+
+}

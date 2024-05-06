@@ -1,0 +1,11 @@
+spring.application.name=payment-service
+
+server.port=8082
+spring.datasource.url = jdbc:oracle:thin:@localhost:1521:XE
+spring.datasource.username = c##paymentservice
+spring.datasource.password= payment123
+
+spring.jpa.show-sql= true
+spring.jpa.hibernate.ddl-auto= create
+
+management.endpoints.web.exposure.include=*

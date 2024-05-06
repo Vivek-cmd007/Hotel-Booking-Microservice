@@ -1,0 +1,27 @@
+spring.application.name=api-gateway
+
+server.port = 9090
+
+spring.cloud.gateway.routes[0].id = FLATMODULE
+spring.cloud.gateway.routes[0].uri = lb://FLATMODULE
+spring.cloud.gateway.routes[0].predicates[0] = Path=/flat/**
+spring.cloud.gateway.routes[0].filters= AuthenticationFilter
+
+spring.cloud.gateway.routes[1].id = LANDLORD
+spring.cloud.gateway.routes[1].uri = lb://LANDLORD
+spring.cloud.gateway.routes[1].predicates[0] = Path=/landlord/**
+spring.cloud.gateway.routes[1].filters= AuthenticationFilter
+
+spring.cloud.gateway.routes[2].id = TENANTMODULE
+spring.cloud.gateway.routes[2].uri = lb://TENANTMODULE
+spring.cloud.gateway.routes[2].predicates[0] = Path=/tenant/**
+spring.cloud.gateway.routes[2].filters= AuthenticationFilter
+
+spring.cloud.gateway.routes[3].id = FLATBOOKING-MODULE
+spring.cloud.gateway.routes[3].uri = lb://FLATBOOKING-MODULE
+spring.cloud.gateway.routes[3].predicates[0] = Path=/booking/**
+spring.cloud.gateway.routes[3].filters= AuthenticationFilter
+
+spring.cloud.gateway.routes[4].id = AUTHENTICATION
+spring.cloud.gateway.routes[4].uri = lb://AUTHENTICATION
+spring.cloud.gateway.routes[4].predicates[0] = Path=/auth/**

@@ -1,0 +1,11 @@
+spring.application.name=booking-service
+
+server.port=8084
+spring.datasource.url = jdbc:oracle:thin:@localhost:1521:XE
+spring.datasource.username = c##hotelbookingservice
+spring.datasource.password= hotelbooking123
+
+spring.jpa.show-sql= true
+spring.jpa.hibernate.ddl-auto= create
+
+management.endpoints.web.exposure.include=*

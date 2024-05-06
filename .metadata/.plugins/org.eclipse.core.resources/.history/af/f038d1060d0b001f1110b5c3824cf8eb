@@ -1,0 +1,53 @@
+package com.paymentservice.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.paymentservice.entity.Payment;
+import com.paymentservice.model.BookingResponse;
+import com.paymentservice.repository.PaymentRepository;
+
+@Service
+public class PaymentServiceImpl implements PaymentService{
+	
+	@Autowired
+	BookingServiceConsumer bookingService;
+	
+	@Autowired
+	PaymentRepository paymentService;
+
+	@Override
+	public Optional<Payment> getPaymentById(int paymentId) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+
+	@Override
+	public ResponseEntity<?> createPayment( Payment payment) {
+		
+		BookingResponse booking = bookingService.getFullBookingDetails(payment.getBookingId());
+		
+		System.out.println("Payment Amount: [" + payment.getPayAmount() + "]");
+		System.out.println("Booking Amount: [" + booking.getAmount() + "]");
+
+		
+		if(payment.getPayAmount().equalsIgnoreCase((booking.getAmount()))) {
+			
+			 Payment processedPayment = paymentService.save(payment);
+	           
+			 return new ResponseEntity<>(processedPayment, HttpStatus.OK);
+		}
+		else {
+//			 throw new RuntimeException("Payment declined");
+			return new ResponseEntity<>("Payment Declined", HttpStatus.CONFLICT);
+		}
+		
+		
+	}
+
+}

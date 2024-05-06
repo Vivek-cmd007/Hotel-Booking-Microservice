@@ -1,0 +1,17 @@
+package com.paymentservice.service;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.paymentservice.entity.Payment;
+import com.paymentservice.model.BookingDetails;
+import com.paymentservice.model.PaymentLoad;
+
+@Service
+public interface PaymentService {
+
+	Optional<Payment> getPaymentById(int paymentId);
+
+	Payment createPayment(int bookingId, payment);
+}

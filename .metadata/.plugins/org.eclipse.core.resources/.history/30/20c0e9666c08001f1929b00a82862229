@@ -1,0 +1,27 @@
+package com.paymentservice.service;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.paymentservice.entity.Transaction;
+
+
+@Service
+public class TransactionServiceImpl implements TransactionService {
+
+	@Override
+	public Optional<Transaction> getTransactionById(int transactionId) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public Transaction createTransaction(Transaction transaction) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+}

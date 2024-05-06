@@ -1,0 +1,12 @@
+package com.bookingservice.exception;
+
+public class DeadlinePassedException extends RuntimeException {
+
+	public DeadlinedException() {
+
+	}
+
+	public DeadlinedException(String msg) {
+		super(msg);
+	}
+}

@@ -1,0 +1,17 @@
+package com.paymentservice.service;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.paymentservice.model.BookingDetails;
+import com.paymentservice.model.PaymentLoad;
+
+@FeignClient
+public interface BookingServiceConsumer {
+	
+	@GetMapping("/booking/{id}")
+	PaymentLoad getBookingDetailsById(int bookingId);
+	
+	
+
+}

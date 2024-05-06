@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="BookingTest" project="booking-service" tests="5" started="5" failures="1" errors="1" ignored="0">
+  <testsuite name="com.bookingservice.bookingtest.BookingTest" time="0.232" displayname="BookingTest" uniqueid="[engine:junit-jupiter]/[class:com.bookingservice.bookingtest.BookingTest]">
+    <testcase name="testAddBookingDetails" classname="com.bookingservice.bookingtest.BookingTest" time="0.116" displayname="testAddBookingDetails()" uniqueid="[engine:junit-jupiter]/[class:com.bookingservice.bookingtest.BookingTest]/[method:testAddBookingDetails()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.bookingservice.service.HotelServiceConsumer.getRoomDetailsById(int)" because "this.hotelService" is null&#13;
+	at com.bookingservice.service.BookingDetailsServiceImpl.createBookingDetails(BookingDetailsServiceImpl.java:40)&#13;
+	at com.bookingservice.bookingtest.BookingTest.testAddBookingDetails(BookingTest.java:52)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testUpdateBookingDetails" classname="com.bookingservice.bookingtest.BookingTest" time="0.072" displayname="testUpdateBookingDetails()" uniqueid="[engine:junit-jupiter]/[class:com.bookingservice.bookingtest.BookingTest]/[method:testUpdateBookingDetails()]">
+      <failure>
+        <expected>bookingRepository.findById(
+    1
+);</expected>
+        <actual>bookingRepository.findById(
+    10
+);
+bookingRepository.save(
+    BookingDetails(bookingId=10, hotelId=1, roomId=101, userId=1, bookingDate=2024-05-06, bookedFrom=2024-05-12, bookedTo=2024-05-13, noOfAdults=2, noOfChildren=0, amount=5000, status=Booked)
+);
+</actual>
+        Argument(s) are different! Wanted:
+bookingRepository.findById(
+    1
+);
+-&gt; at com.bookingservice.bookingtest.BookingTest.testUpdateBookingDetails(BookingTest.java:180)
+Actual invocations have different arguments:
+bookingRepository.findById(
+    10
+);
+-&gt; at com.bookingservice.service.BookingDetailsServiceImpl.updateBookingDetails(BookingDetailsServiceImpl.java:102)
+bookingRepository.save(
+    BookingDetails(bookingId=10, hotelId=1, roomId=101, userId=1, bookingDate=2024-05-06, bookedFrom=2024-05-12, bookedTo=2024-05-13, noOfAdults=2, noOfChildren=0, amount=5000, status=Booked)
+);
+-&gt; at com.bookingservice.service.BookingDetailsServiceImpl.updateBookingDetails(BookingDetailsServiceImpl.java:106)
+&#13;
+	at com.bookingservice.bookingtest.BookingTest.testUpdateBookingDetails(BookingTest.java:180)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+
+      </failure>
+    </testcase>
+    <testcase name="testgetBookingDetailById" classname="com.bookingservice.bookingtest.BookingTest" time="0.01" displayname="testgetBookingDetailById()" uniqueid="[engine:junit-jupiter]/[class:com.bookingservice.bookingtest.BookingTest]/[method:testgetBookingDetailById()]"/>
+    <testcase name="testGetAllBookingDetails" classname="com.bookingservice.bookingtest.BookingTest" time="0.01" displayname="testGetAllBookingDetails()" uniqueid="[engine:junit-jupiter]/[class:com.bookingservice.bookingtest.BookingTest]/[method:testGetAllBookingDetails()]"/>
+    <testcase name="testDeleteBookingDetails" classname="com.bookingservice.bookingtest.BookingTest" time="0.009" displayname="testDeleteBookingDetails()" uniqueid="[engine:junit-jupiter]/[class:com.bookingservice.bookingtest.BookingTest]/[method:testDeleteBookingDetails()]"/>
+  </testsuite>
+</testrun>

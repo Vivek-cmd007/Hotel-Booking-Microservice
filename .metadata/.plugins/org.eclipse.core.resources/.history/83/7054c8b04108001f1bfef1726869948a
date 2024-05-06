@@ -1,0 +1,44 @@
+package com.hotelroom.model;
+
+import java.sql.Date;
+import com.hotelroom.entity.Hotel;
+import com.hotelroom.entity.RoomDetails;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class BookingDetails {	 
+	 
+	  private int bookingId;
+
+	
+	  private Hotel hotel;
+
+	
+	  private RoomDetails roomDetails;
+
+
+	  private User user;
+
+	  private Date bookedFrom;
+
+	  private Date bookedTo;
+
+	
+	  private int noOfAdults;
+
+	
+	  private int noOfChildren;
+
+	  private double amount;
+
+//	  @OneToMany(mappedBy = "bookingDetails")
+//	  private List<Payment> payments;
+
+	
+
+}

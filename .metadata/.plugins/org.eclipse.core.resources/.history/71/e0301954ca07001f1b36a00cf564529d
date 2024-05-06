@@ -1,0 +1,29 @@
+package com.bookingservice.model;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class BookingPayload {
+
+	private int hotelId;
+	private int roomId;
+	private int userId;
+	private int amount;
+	private LocalDate bookedFrom;
+
+	private LocalDate bookedTo;
+
+	private int noOfAdults;
+
+	private int noOfChildren;
+
+
+
+}

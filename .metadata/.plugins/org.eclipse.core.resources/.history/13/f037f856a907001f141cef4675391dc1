@@ -1,0 +1,43 @@
+package com.hotelroom.payload;
+
+public class RoomDetailsPayload {
+	
+	private int hotelId;
+	private int roomNo;
+	private int roomType;
+	 private double ratePerDay;
+
+	  private boolean isAvailable;
+	public int getRoomType() {
+		return roomType;
+	}
+	public void setRoomType(int roomType) {
+		this.roomType = roomType;
+	}
+	public double getRatePerDay() {
+		return ratePerDay;
+	}
+	public void setRatePerDay(double ratePerDay) {
+		this.ratePerDay = ratePerDay;
+	}
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+	public int getHotelId() {
+		return hotelId;
+	}
+	public void setHotelId(int hotelId) {
+		this.hotelId = hotelId;
+	}
+	public int getRoomNo() {
+		return roomNo;
+	}
+	public void setRoomNo(int roomNo) {
+		this.roomNo = roomNo;
+	}
+	
+
+}

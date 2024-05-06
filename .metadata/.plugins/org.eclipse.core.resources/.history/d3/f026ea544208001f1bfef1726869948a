@@ -1,0 +1,24 @@
+package com.hotelroom.payload;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class RoomDetailsPayload {
+	
+	private int hotelId;
+	private String hotelName;
+	private String roomNo;
+	private String roomType;
+	private double ratePerDay;
+	private boolean isAvailable;
+	
+	
+	
+	
+	
+
+}

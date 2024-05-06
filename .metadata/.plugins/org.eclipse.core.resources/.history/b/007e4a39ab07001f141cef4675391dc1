@@ -1,0 +1,56 @@
+package com.hotelroom.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hotelroom.entity.RoomDetails;
+import com.hotelroom.exception.ResourceNotFoundException;
+import com.hotelroom.repository.RoomDetailsRepository;
+
+@Service
+public class RoomDetailsServiceImpl implements RoomDetailsService {
+
+	@Autowired
+	private RoomDetailsRepository roomDetailsRepository;
+	
+	@Override
+	public RoomDetails getRoomDetailsById(int roomId) {
+		Optional<RoomDetails> optionalRoomDetails = roomDetailsRepository.findById(roomId);
+		
+		if(optionalRoomDetails.isEmpty()) {
+			throw new ResourceNotFoundException("Room Details not found"+roomId);
+		}
+		RoomDetails roomDetails = optionalRoomDetails.get();
+		
+		return roomDetails;
+	}
+
+	@Override
+	public RoomDetails createRoomDetails(RoomDetails roomDetails) {
+		roomDetailsRepository.save(roomDetails);
+		return roomDetails;
+	}
+
+	@Override
+	public void deleteRoomDetails(int roomId) {
+		Optional<RoomDetails> optionalRoomDetails = roomDetailsRepository.findById(roomId);
+		
+		if(optionalRoomDetails.isEmpty()) {
+			throw new ResourceNotFoundException("Room Details not found"+roomId);
+		}
+		RoomDetails roomDetails = optionalRoomDetails.get();
+		roomDetailsRepository.delete(roomDetails);
+		
+	}
+
+	@Override
+	public List<RoomDetails> getAllRoomDetails() {
+		List<RoomDetails> roomDetails = roomDetailsRepository.findAll();
+		return roomDetails;
+	}
+
+	
+}

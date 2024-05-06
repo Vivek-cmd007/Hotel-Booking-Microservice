@@ -1,0 +1,10 @@
+spring.application.name=authentication
+
+server.port=8085
+
+spring.datasource.url =jdbc:oracle:thin:@localhost:1521:XE
+spring.datasource.username = authentication
+spring.datasource.password = aman123
+
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto= create

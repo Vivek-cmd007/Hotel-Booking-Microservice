@@ -1,0 +1,29 @@
+package com.paymentservice.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.paymentservice.entity.Payment;
+
+@Service
+public class PaymentServiceImpl implements PaymentService{
+	
+	@Autowired
+	BookingServiceConsumer bookingService;
+
+	@Override
+	public Optional<Payment> getPaymentById(int paymentId) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public Payment createPayment(Payment payment) {
+
+		BookingDetails booking = 
+		return null;
+	}
+
+}
