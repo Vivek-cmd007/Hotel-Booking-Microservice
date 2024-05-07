@@ -1,5 +1,7 @@
 package com.bookingservice.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,10 +25,10 @@ public class BookingDetailsController {
   @Autowired
   BookingDetailsService bookingDetailsService;
   
-  @PostMapping("/save")
-  public ResponseEntity<BookingDetails> createBookingDetails(@RequestBody BookingDetails bookingDetails) {
-    return new ResponseEntity<BookingDetails>(bookingDetailsService.createBookingDetails(bookingDetails),HttpStatus.CREATED);
-   
+  @PostMapping("/Book")
+  public ResponseEntity<?> createBookingDetails(@RequestBody BookingDetails bookingDetails) {
+	  
+	return bookingDetailsService.createBookingDetails(bookingDetails);
   }
 
   @PutMapping("/update")
@@ -41,10 +43,10 @@ public class BookingDetailsController {
 //      return new ResponseEntity<>(bookingDetails,HttpStatus.OK);
 //    }
 //
-//  @GetMapping("/getAll")
-//  public ResponseEntity<List<BookingDetails>> getAllBooking(){
-//	  return new ResponseEntity<List<BookingDetails>>(bookingDetailsService.getAllBookingDetails(),HttpStatus.OK);
-//  }
+  @GetMapping("/getAll")
+  public ResponseEntity<List<BookingDetails>> getAllBooking(){
+	  return new ResponseEntity<List<BookingDetails>>(bookingDetailsService.getAllBookingDetails(),HttpStatus.OK);
+  }
   
   @GetMapping("/getFullBookingDetails/{bookingId}")
   public FullBookingResponse getFullBookingDetails(@PathVariable("bookingId") int bookingId) {

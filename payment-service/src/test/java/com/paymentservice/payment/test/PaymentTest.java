@@ -116,6 +116,7 @@ public class PaymentTest {
 	        
 	        assertEquals(payments.size(), retrievedPayments.size());
 	        assertEquals(payments, retrievedPayments);
+	        
 	    }
 		
 	}

@@ -36,29 +36,34 @@ public class PaymentServiceImpl implements PaymentService{
 		return payment;
 	}
 	
-
-
 	@Override
-	public ResponseEntity<?> createPayment( Payment payment) {
-		
-		BookingResponse booking = bookingService.getFullBookingDetails(payment.getBookingId());
-		
-		System.out.println("Payment Amount: [" + payment.getPayAmount() + "]");
-		System.out.println("Booking Amount: [" + booking.getAmount() + "]");
+	public ResponseEntity<?> createPayment(Payment payment) {
 
-		
-		if(payment.getPayAmount().equalsIgnoreCase((booking.getAmount()))) {
-			
-			 Payment processedPayment = paymentService.save(payment);
-	           
-			 return new ResponseEntity<>(processedPayment, HttpStatus.OK);
-		}
-		else {
-//			 throw new RuntimeException("Payment declined");
-			return new ResponseEntity<>("Payment Declined", HttpStatus.CONFLICT);
-		}
-		
-		
+	    BookingResponse booking = bookingService.getFullBookingDetails(payment.getBookingId());
+
+	    // Check if the booking is canceled
+	    if (booking.getStatus().equalsIgnoreCase("Canceled")) {
+	        return new ResponseEntity<>("Cannot make payment for a canceled booking", HttpStatus.CONFLICT);
+	    }
+
+	    // Check if payment already exists for the booking ID
+	    boolean isPaymentExists = paymentService.existsByBookingId(payment.getBookingId());
+	    if (isPaymentExists) {
+	        return new ResponseEntity<>("Payment already exists for the booking", HttpStatus.CONFLICT);
+	    }
+
+	    System.out.println("Payment Amount: [" + payment.getPayAmount() + "]");
+	    System.out.println("Booking Amount: [" + booking.getAmount() + "]");
+
+	    if (payment.getPayAmount().equalsIgnoreCase((booking.getAmount()))) {
+
+	        Payment processedPayment = paymentService.save(payment);
+
+	        return new ResponseEntity<>(processedPayment, HttpStatus.OK);
+	    } else {
+
+	        return new ResponseEntity<>("Payment Declined", HttpStatus.CONFLICT);
+	    }
 	}
 
 

@@ -1,8 +1,9 @@
 package com.bookingservice.model;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+
 import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,10 +28,10 @@ public class BookingPayload {
 	@NotBlank(message = "Room Type name is mandatory")
 	private String roomType;
 	
-	@Pattern(regexp = "^[0-9]{10}", message = "Invalid Mobile Number")
+	 @Size(min=0,max=10)
 	private String mobile;
 	
-	@Pattern(regexp = "^[0-9]{10}", message = "Invalid Mobile Number")
+	 @Size(min=0,max=10)
 	private String hotelPhone1;
 	
 

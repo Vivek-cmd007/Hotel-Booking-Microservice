@@ -9,15 +9,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedAttributeNode;
+import jakarta.persistence.NamedEntityGraph;
+import jakarta.persistence.NamedSubgraph;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 @Data
 @NoArgsConstructor
@@ -50,11 +55,13 @@ public class Hotel {
 	@Email(message="Enter a Valid Email")
 	private String email;	
 	
-	@Pattern(regexp = "^[0-9]{10}", message = "Invalid Mobile Number")
+	@Size(min=0,max=10)
+	@NotNull
 	@Column(name="phone_1")
 	private String phone1;
 	
-	@Pattern(regexp = "^[0-9]{10}", message = "Invalid Mobile Number")
+	@Size(min=0,max=10)
+	@NotNull
 	@Column(name="phone_2")
 	private String phone2;
 
@@ -64,5 +71,9 @@ public class Hotel {
 	@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
 	private List<RoomDetails> roomDetails;
 	
+	
+
+	
+
 
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hotelroom.entity.RoomDetails;
 import com.hotelroom.payload.RoomDetailsPayload;
+import com.hotelroom.service.HotelService;
 import com.hotelroom.service.RoomDetailsService;
 
 @RestController
@@ -24,6 +25,9 @@ public class RoomDetailsController {
 
   @Autowired
   private RoomDetailsService roomDetailsService;
+  
+  @Autowired
+  private  HotelService hotelService;
 
   @GetMapping("/{Id}")
   public ResponseEntity<RoomDetails> getRoomDetails(@PathVariable("Id") int roomId) {
@@ -44,6 +48,11 @@ public class RoomDetailsController {
 	  roomDetailsService.deleteRoomDetails(roomId);
 	  ResponseEntity<Void> repsonseEntity = new ResponseEntity<>(HttpStatus.OK);
 	  return repsonseEntity;
+  }
+  @GetMapping("/{hotelId}/rooms")
+  public ResponseEntity<List<RoomDetails>> findRoomsByHotelId(@PathVariable int hotelId) {
+      List<RoomDetails> rooms = hotelService.findRoomsByHotelId(hotelId);
+      return ResponseEntity.ok(rooms);
   }
 
   @GetMapping("/all")

@@ -73,8 +73,8 @@ public class RoomDetailsServiceImpl implements RoomDetailsService {
 			return roomDetailsRepository.save(rooms);
 			
 	}
-
-
+	
+	
 	@Override
 	public RoomDetails updateRoom(RoomDetails room) {
 		Optional<RoomDetails> optionalroom = roomDetailsRepository.findById(room.getRoomId());
@@ -84,9 +84,9 @@ public class RoomDetailsServiceImpl implements RoomDetailsService {
 
 		}
 		
-//		RoomDetails room2 = optionalroom.get();
-//		room2.setAvailable(room.isAvailable());
-		return roomDetailsRepository.save(room);
+		RoomDetails room2 = optionalroom.get();
+		room2.setAvailable(room.isAvailable());
+		return roomDetailsRepository.save(room2);
 	
 	}
 	

@@ -32,9 +32,9 @@ public class HotelController {
 
   @PostMapping("/save")
   public ResponseEntity<Hotel> createHotel(@RequestBody Hotel hotel) {
-	  hotelService.createHotel(hotel);
-	  ResponseEntity<Hotel> responseEntity = new ResponseEntity<>(HttpStatus.CREATED);	  
-    return responseEntity;
+	  
+	  return new ResponseEntity<>(hotelService.createHotel(hotel),HttpStatus.CREATED);
+	 
   }
 
   @GetMapping("/all")
@@ -45,9 +45,9 @@ public class HotelController {
 	}
 	@PutMapping("/update")
 	public ResponseEntity<Hotel> editHotel(@RequestBody Hotel hotel) {
-		hotelService.updateHotel(hotel);
-		ResponseEntity<Hotel> responseEntity = new ResponseEntity<>(HttpStatus.OK);
-		return responseEntity;
+		
+		 return new ResponseEntity<>(hotelService.updateHotel(hotel),HttpStatus.OK);
+		
 	}
 	
 	@DeleteMapping("/{id}")

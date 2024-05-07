@@ -11,6 +11,7 @@ public class BookingResponse {
 	
 	private int bookingId;
 	private String amount;
+	private String status;
 
 
 }

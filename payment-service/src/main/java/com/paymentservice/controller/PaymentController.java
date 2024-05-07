@@ -1,6 +1,8 @@
 package com.paymentservice.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,11 +31,19 @@ public class PaymentController {
 
   }
 
-  @PostMapping
+  @PostMapping("add")
   public ResponseEntity<?> createPayment(@RequestBody Payment payment) {
 //    Payment savedPayment = paymentService.createPayment(payment);
 //    return ResponseEntity.ok(savedPayment);
 	  return paymentService.createPayment(payment);
   }
+  
+
+	@GetMapping("/all")
+	public List<Payment> fetchAllUser() {
+
+		List<Payment> payment = paymentService.getAllPayment();
+		return payment;
+	}
 
 }

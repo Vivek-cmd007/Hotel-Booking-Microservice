@@ -77,10 +77,10 @@ public class HotelServiceTest {
 
         when(repository.save(any(Hotel.class))).thenReturn(hotel);
 
-        // When
+       
         Hotel result = hotelService.createHotel(hotel);
 
-        // Then
+   
         assertEquals("Hotel Tulip", result.getHotelName());
         verify(repository).save(hotel);
     }
@@ -94,10 +94,10 @@ public class HotelServiceTest {
          when(repository.findById(1)).thenReturn(Optional.of(existingHotel));
          when(repository.save(any(Hotel.class))).thenReturn(existingHotel);
 
-         // When
+       
          Hotel result = hotelService.updateHotel(existingHotel);
 
-         // Then
+      
          assertEquals("Hotel Mountain View", result.getHotelName());
          verify(repository).save(existingHotel);
      }
@@ -109,7 +109,7 @@ public class HotelServiceTest {
 
          when(repository.findById(1)).thenReturn(Optional.empty());
 
-         // Then
+       
          assertThrows(ResourceNotFoundException.class, () -> {
              hotelService.updateHotel(newHotel);
          });
@@ -122,10 +122,10 @@ public class HotelServiceTest {
 
          when(repository.findById(1)).thenReturn(Optional.of(hotel));
 
-         // When
+        
          hotelService.deleteHotel(1);
 
-         // Then
+       
          verify(repository).delete(hotel);
      }
      

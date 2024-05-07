@@ -37,4 +37,5 @@ public class Payment {
 	  @Positive(message="Only Positive values Allowed")
 	  private String amount;
 
+	  private boolean isPaymentDone;
 }

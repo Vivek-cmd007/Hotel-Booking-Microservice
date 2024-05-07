@@ -65,9 +65,6 @@ public class BookingDetails {
 	  private String amount;
 	  
 	  private String status;
-//
-//	  @OneToMany(mappedBy = "bookingDetails")
-//	  private List<Payment> payments;
 
 	
 

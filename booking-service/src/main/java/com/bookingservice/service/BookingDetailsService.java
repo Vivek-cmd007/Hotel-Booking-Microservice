@@ -14,7 +14,7 @@ public interface BookingDetailsService {
 	
 	 BookingPayload getBookingDetailsById(int bookingId);
 
-	  BookingDetails createBookingDetails(BookingDetails Booking);
+	  ResponseEntity<?> createBookingDetails(BookingDetails Booking);
 	  
 	  List<BookingDetails> getAllBookingDetails();
 	  

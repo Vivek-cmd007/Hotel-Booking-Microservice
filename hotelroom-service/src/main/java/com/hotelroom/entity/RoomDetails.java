@@ -53,11 +53,5 @@ public class RoomDetails {
 	  
 	  private boolean available;
 
-//	  @Lob
-//	  private byte[] photo;
-
-//	  @OneToMany(mappedBy = "roomDetails")
-//	  private List<BookingDetails> bookingDetails;
-
 
 }
