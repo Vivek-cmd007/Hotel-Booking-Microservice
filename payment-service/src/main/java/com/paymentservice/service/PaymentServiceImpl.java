@@ -41,12 +41,12 @@ public class PaymentServiceImpl implements PaymentService{
 
 	    BookingResponse booking = bookingService.getFullBookingDetails(payment.getBookingId());
 
-	    // Check if the booking is canceled
+	    // if the booking is canceled
 	    if (booking.getStatus().equalsIgnoreCase("Canceled")) {
 	        return new ResponseEntity<>("Cannot make payment for a canceled booking", HttpStatus.CONFLICT);
 	    }
 
-	    // Check if payment already exists for the booking ID
+	    // if payment already exists for the booking ID
 	    boolean isPaymentExists = paymentService.existsByBookingId(payment.getBookingId());
 	    if (isPaymentExists) {
 	        return new ResponseEntity<>("Payment already exists for the booking", HttpStatus.CONFLICT);
